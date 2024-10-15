@@ -1,0 +1,26 @@
+name: Deploy to Replit
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies (optional, modify for your language)
+        run: |
+          # Add commands for your language if needed
+          # For Python, this would be:
+          # pip install -r requirements.txt
+
+      - name: Deploy to Replit
+        run: |
+          git remote add replit https://replit.com/@AdrianPearce1/RichLifeDA.git
+          # https://replit.com/@yourusername/your-replit-project.git
+          git push replit main --force
